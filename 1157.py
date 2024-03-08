@@ -1,11 +1,12 @@
 from collections import Counter
-a = input()
-a = list(a)
 
 def most_frequent(data):
-    c = Counter(data).most_common()
-    if int(c[0][1]) == int(c[1][1]):
-        print("?")
+    data = data.upper()
+    c = Counter(data).most_common(2)
+    if len(c) > 1 and c[0][1] == c[1][1]:
+        return "?"
     else:
-        print(c[0][0].upper())
-most_frequent(a)
+        return c[0][0]
+
+word = input()
+print(most_frequent(word))
